@@ -1,13 +1,18 @@
-let whiteDots = []; // empty array to save the white dots in the background
-let coloredCircles = []; // empty array to save the attributes about the circle
+// empty array to store the background's white dots
+let whiteDots = [];
+// empty array to store the circle's attributes
+let coloredCircles = [];
 let totalGroups = 12;
 let currentGroupIndex = 0;
-let intervalDuration = 1000; // Interval duration in milliseconds
+// Interval duration in milliseconds
+let intervalDuration = 1000;
 
 // Create a class for all the circles
 class ColoredCircle {
-  constructor(x, y, radius, colors) { // This class includes the x and y position of the circle, its radius, and color
-    this.position = createVector(x, y); // createVector() is a function to create a two-dimensional vector
+  // This class includes the x and y position of the circle, its radius, and color
+  constructor(x, y, radius, colors) { 
+    // createVector() is a function to create a two-dimensional vector
+    this.position = createVector(x, y);
     this.radius = radius;
     this.colors = colors;
   }
@@ -16,15 +21,18 @@ class ColoredCircle {
     noStroke();
     // Fill the first color in the color array, which is the color for the large circle
     fill(this.colors[0]);
-    ellipse(this.position.x, this.position.y, this.radius * 2); // The radius for the large circle is 120, in the drawCircles() function
+    // The radius for the large circle is 120, in the drawCircles() function
+    ellipse(this.position.x, this.position.y, this.radius * 2);
 
     // Fill the second color in the color array, which is the color for the medium circle
     fill(this.colors[1]);
-    ellipse(this.position.x, this.position.y, 150); // The radius for the medium circle is 150
+    // The radius for the medium circle is 150
+    ellipse(this.position.x, this.position.y, 150);
 
     // Fill the third color in the color array, which is the color for the small circle
     fill(this.colors[2]);
-    ellipse(this.position.x, this.position.y, 80); // The radius for the small circle is 80
+    // The radius for the small circle is 80
+    ellipse(this.position.x, this.position.y, 80);
   }
 }
 
@@ -33,7 +41,8 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   initializeWhiteDots(); // Initialize white dots
   drawCircles();
-  setInterval(incrementGroupIndex, intervalDuration); // Increment the group index at regular intervals
+  // Increment the group index at regular intervals
+  setInterval(incrementGroupIndex, intervalDuration);
 }
 
 function draw() {
@@ -65,14 +74,17 @@ function drawCircles() {
 }
 
 function drawBackground() {
-  background(4, 80, 111); // Set background color
+  // Set background color
+  background(4, 80, 111); 
   for (let dot of whiteDots) { // Draw white dots on the background
     noStroke();
     fill(255);
-    ellipse(dot.x, dot.y, 15); // Draw the dot based on the position in the whiteDots array
+     // Draw the dot based on the position in the whiteDots array
+    ellipse(dot.x, dot.y, 15);
   }
 }
 
+// White dots setting
 function initializeWhiteDots() {
   for (let i = 0; i < 250; i++) { // Create 250 dots
     let x = random(width); // Random x position
