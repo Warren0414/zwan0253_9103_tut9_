@@ -52,6 +52,7 @@ function draw() {
   }
 }
 
+// From research and Chatgbt tool
 function drawCircles() {
   // Generate 12 groups of circles
   for (let i = 0; i < totalGroups; i++) {
